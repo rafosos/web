@@ -1,0 +1,101 @@
+<!-- Criar no App.Component.html -->
+<!-- Navbar (menu com tres links): Home, about, Contact -->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">{{title}}</a>
+  
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" *ngFor="let item of navItems; index as i;">
+        <a class="nav-link" href="#">{{item}}</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Criar 4 Cards e centralizar na tela -->
+<section class="d-flex justify-content-center mx-5 my-3">
+  <div class="d-flex flex-row">
+    <div class="card" style="width: 18rem;" id="card-1">
+      <img src="https://picsum.photos/1025/600?random={{indexImage}}">
+      <div class="card-body">
+        <h5 class="card-title">{{card1.title}}</h5>
+        <p class="card-text">{{card1.description}}</p>
+      </div>
+    </div>
+
+    <div class="card" style="width: 18rem;" *ngFor="let i of [2,3,4]" id="card-{{i}}">
+      <img src="https://picsum.photos/1025/600?random=1">
+      <div class="card-body">
+        <h5 class="card-title">Card {{i}}</h5>
+        <p class="card-text">Lorem ipsum dorem sit amet.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Criar um Form com: -->
+<!-- Titulo e Descrição -->
+<!-- Botão Enviar -->
+<!-- botão "Alterar Imagem" -->
+
+<section class="d-flex justify-content-center" style="margin-bottom: 35px;">
+  <form class="w-25">
+
+    <!-- Titulo altera o Titulo do primeiro card em tempo real (usar o objeto card) -->
+    <div class="form-group">
+      <label for="inputTitle">Titulo card 1</label>
+      <input 
+        id="inputTitle" 
+        class="form-control" 
+        placeholder="Inserir titulo..."
+        type="text"
+        name="title"
+        [(ngModel)]="card1.title"
+      >
+    </div>
+
+    <div class="form-group">
+      <label for="inputDescription">Descrição</label>
+      <input 
+        id="inputDescription"
+        class="form-control"
+        placeholder="Inserir descrição..."
+        type="text" 
+        name="description"
+        [formControl]="inputDescription"
+      >
+    </div>
+    
+    <!-- Ao clicar em Enviar, altera o conteúdo da descrição do card 1 com o
+    conteúdo do campo de descrição do formulário. -->
+    <div class="d-flex">
+      <button 
+        class="btn btn-primary w-100 mr-1"
+        (click)="card1.description = inputDescription.value || card1.description "
+      >
+        Enviar
+      </button>
+
+      <!-- O Botao Altera Imagem: -->
+      <!-- ao clicar, incrementa index e automaticamente altera a imagem do card 1 -->
+      <button
+        class="btn btn-primary btn-secondary w-100"
+        (click)="indexImage = indexImage+1"
+      >
+        Alterar imagem
+      </button>
+    </div>
+  </form>
+</section>
+  
+
+<!-- Cria um Rodapé fixo -->
+<footer class="footer fixed-bottom bg-dark text-center" style="height: 30px;">
+  <p class="text-white pt-1">
+    Rodapé fixo
+  </p>
+</footer>
+
+
+<router-outlet />
