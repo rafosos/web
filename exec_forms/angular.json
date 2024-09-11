@@ -3,9 +3,19 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "aulas": {
+    "exec_forms": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "standalone": false
+        },
+        "@schematics/angular:directive": {
+          "standalone": false
+        },
+        "@schematics/angular:pipe": {
+          "standalone": false
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -13,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/aulas",
+            "outputPath": "dist/exec_forms",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -59,10 +69,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "aulas:build:production"
+              "buildTarget": "exec_forms:build:production"
             },
             "development": {
-              "buildTarget": "aulas:build:development"
+              "buildTarget": "exec_forms:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -94,6 +104,6 @@
     }
   },
   "cli": {
-    "analytics": false
+    "analytics": "3b454c3d-1199-44a2-a4b6-e60e60ff5ba0"
   }
 }

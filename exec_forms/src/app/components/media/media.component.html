@@ -1,0 +1,16 @@
+<form #formMedia="ngForm" (ngSubmit)="submit(formMedia)">
+  <label>ac1</label>
+  <input name="ac1" ngModel/>
+  <label>ac2</label>
+  <input name="ac2" ngModel/>
+  <label>af</label>
+  <input name="af" ngModel/>
+  <label>ag</label>
+  <input name="ag" ngModel/>
+  <button>submit</button>
+
+  <p>{{lastResult}}</p>
+  <p>{{lastResult != 0 && lastResult >= 5 ?
+      "passou" :
+    lastResult == 0 ? lastResult : "deu nao"}}</p>
+</form>
