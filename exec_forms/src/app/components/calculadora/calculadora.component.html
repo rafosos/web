@@ -1,9 +1,21 @@
-<form #formCalculadora="ngForm" (ngSubmit)="submit(formCalculadora)">
+<form #formCalculadora="ngForm" (ngSubmit)="submit(formCalculadora)" class="d-flex flex-column w-25">
   <label>primeiro numero</label>
-  <input name="num1" ngModel/>
+  <input type="number" name="num1" ngModel/>
   <label>segundo numero</label>
-  <input name="num2" ngModel/>
-  <button>submit</button>
-
-  <p>{{"asjdkh"}}</p>
+  <input type="number" name="num2" ngModel/>
+  <div class="btn-group btn-group-toggle" role="group" data-toggle="buttons">
+    <input type="radio" class="btn-check" name="operacao" id="btnsum" autocomplete="off" [value]="eOperacoes.sum" [(ngModel)]="operacao">
+    <label class="btn btn-outline-primary" for="btnsum">+</label>
+    
+    <input type="radio" class="btn-check" name="operacao" id="btnminus" autocomplete="off" [value]="eOperacoes.subtraction" [(ngModel)]="operacao">
+    <label class="btn btn-outline-primary" for="btnminus">-</label>
+      
+    <input type="radio" class="btn-check" name="operacao" id="btntimes" autocomplete="off" [value]="eOperacoes.times" [(ngModel)]="operacao">
+    <label class="btn btn-outline-primary" for="btntimes">x</label>
+      
+    <input type="radio" class="btn-check" name="operacao" id="btndivision" autocomplete="off" [value]="eOperacoes.division" [(ngModel)]="operacao">
+    <label class="btn btn-outline-primary" for="btndivision">/</label>
+  </div>
+  <button type="submit">submit</button>
 </form>
+<p>{{resultado}}</p>
