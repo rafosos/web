@@ -1,0 +1,16 @@
+<ul>
+  <li *ngFor="let tarefa of tarefas" >
+    <span [ngStyle]="{'text-decoration': tarefa.concluida ? 'line-through' : 'none'}">
+      {{tarefa.descricao}}
+    </span>
+    <button 
+     class="btn" 
+     [ngStyle]="{'background-color': tarefa.concluida ? 'grey' : 'green'}" 
+     (click)="tarefa.concluida = !tarefa.concluida">
+      {{tarefa.concluida ? "Ativar" : "Concluir"}}
+    </button>
+  </li>
+</ul>
+
+
+<router-outlet />
