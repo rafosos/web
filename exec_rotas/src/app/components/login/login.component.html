@@ -1,0 +1,11 @@
+<form #formLogin="ngForm" (ngSubmit)="submit(formLogin)" class="d-flex flex-column w-25">
+    <label for="usuario">Usuário</label>
+    <input type="text" name="usuario" #usuario="ngModel"
+    [ngClass]="{'is-invalid': usuario.invalid && formLogin.submitted}" ngModel required/>
+
+    <label for="senha">Senha</label>
+    <input type="password" name="senha" #senha="ngModel"
+        [ngClass]="{'is-invalid': senha.invalid && formLogin.submitted}" ngModel required/>
+
+    <button type="submit" class="btn btn-primary">ENVIAR</button>
+</form>

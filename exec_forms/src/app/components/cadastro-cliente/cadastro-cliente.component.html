@@ -1,18 +1,21 @@
-<form #formCliente="ngForm" (ngSubmit)="submit(formCliente)" class="d-flex flex-column w-25">
-    <label for="id">id</label>
-    <input type="number" name="id" ngModel required/>
+<div class="card p-5">
+    <h4>Cadastro de Cliente</h4>
+    <form #formCliente="ngForm" (ngSubmit)="submit(formCliente)" class="d-flex flex-column">
+        <label for="id">id</label>
+        <input type="number" name="id" ngModel required/>
 
-    <label for="nome">nome</label>
-    <input type="text" name="nome" ngModel required/>
+        <label for="nome">nome</label>
+        <input type="text" name="nome" ngModel required/>
     
-    <label for="email">email</label>
-    <input type="email" name="email" ngModel required/>
+        <label for="email">email</label>
+        <input type="email" name="email" ngModel required/>
     
-    <label for="idade">idade</label>
-    <input type="number" name="idade" ngModel required/>
+        <label for="idade">idade</label>
+        <input type="number" name="idade" ngModel required/>
     
-    <button type="submit">submit</button>
-</form>
+        <button type="submit" class="btn btn-primary">ENVIAR</button>
+    </form>
   
-<p>Alunos cadastrados</p>
-<p *ngFor="let aluno of alunos">{{aluno.nome}}</p>
+    <p>Alunos cadastrados:</p>
+    <p *ngFor="let aluno of alunos">{{aluno.nome}}</p>
+</div>

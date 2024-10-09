@@ -1,17 +1,9 @@
-<!-- Crie um formulário de apólice para seguro automobilístico. Para isso o
-consultor preencherá: Nome do segurado, o sexo, a idade e o valor do
-automóvel. Mediante a regra abaixo calcule e exiba o valor da apólice de
-seguro:
-• Se sexo for masculino e idade <= 25: Valor da apólice = 15% do valor do automóvel
-• Se sexo for masculino e idade > 25: Valor da apólice = 10% do valor do automóvel
-• Se sexo for feminino: Valor da apólice = 8% do valor do automóvel -->
-
-<form #formSeguro="ngForm" (ngSubmit)="submit(formSeguro)">
-    <label for="nome">Nome</label>
+<div class="card p-5">
+    <h4>Apólice de Seguro</h4>
+    <form #formSeguro="ngForm" (ngSubmit)="submit(formSeguro)">
+        <label for="nome">Nome</label>
     <input name="nome" type="text" ngModel/>
     
-    
-    <label for="sexo">Sexo</label>
     <div class="btn-group btn-group-toggle" role="group" data-toggle="buttons">
         <input type="radio" class="btn-check" name="sexo" id="masc" autocomplete="off" [value]="eSexo.masculino" [(ngModel)]="sexo">
         <label class="btn btn-outline-primary" for="masc">M</label>
@@ -19,14 +11,15 @@ seguro:
         <input type="radio" class="btn-check" name="sexo" id="fem" autocomplete="off" [value]="eSexo.feminino" [(ngModel)]="sexo">
         <label class="btn btn-outline-primary" for="fem">F</label>
     </div>
-    
+    <br/>
     <label for="idade">Idade</label>
     <input name="idade" type="number" ngModel/>
-
+    
     <label for="valorAuto">Valor</label>
     <input name="valorAuto" type="number" ngModel/>
-
-    <button type="submit">enviar</button>
+    
+    <button type="submit" class="btn btn-primary">ENVIAR</button>
 </form>
 
 <p>valor da apólice: {{valor | currency}}</p>
+</div>

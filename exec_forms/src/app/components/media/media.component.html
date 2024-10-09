@@ -1,16 +1,19 @@
-<form #formMedia="ngForm" (ngSubmit)="submit(formMedia)">
-  <label>ac1</label>
-  <input name="ac1" ngModel/>
-  <label>ac2</label>
-  <input name="ac2" ngModel/>
-  <label>af</label>
-  <input name="af" ngModel/>
-  <label>ag</label>
-  <input name="ag" ngModel/>
-  <button>submit</button>
-
-  <p>{{lastResult}}</p>
-  <p>{{lastResult != 0 && lastResult >= 5 ?
-      "passou" :
-    lastResult == 0 ? lastResult : "deu nao"}}</p>
-</form>
+<div class="card p-4">
+  <h4>Média</h4>
+  <form #formMedia="ngForm" (ngSubmit)="submit(formMedia)" class="d-flex flex-column">
+    <label>ac1</label>
+    <input type="number" min="0" name="ac1" ngModel/>
+    <label>ac2</label>
+    <input type="number" min="0" name="ac2" ngModel/>
+    <label>af</label>
+    <input type="number" min="0" name="af" ngModel/>
+    <label>ag</label>
+    <input type="number" min="0" name="ag" ngModel/>
+    <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">ENVIAR</button>
+    
+    <p>Média final: {{lastResult}}</p>
+    <p>Resultado: {{lastResult != 0 && lastResult >= 5 ?
+        "passou" :
+        lastResult == 0 ? "" : "deu nao"}}</p>
+  </form>
+</div>
