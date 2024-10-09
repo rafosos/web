@@ -1,11 +1,19 @@
-<form #formLogin="ngForm" (ngSubmit)="submit(formLogin)" class="d-flex flex-column w-25">
+<form #formCadastro="ngForm" (ngSubmit)="submit(formCadastro)" class="d-flex flex-column w-25">
     <label for="usuario">Usuário</label>
-    <input type="text" name="usuario" #usuario="ngModel"
-    [ngClass]="{'is-invalid': usuario.invalid && formLogin.submitted}" ngModel required/>
+    <input type="text" name="usuario" #usuario="ngModel" class="form-control"
+    [ngClass]="{'is-invalid': usuario.invalid && formCadastro.submitted}" ngModel required/>
 
     <label for="senha">Senha</label>
-    <input type="password" name="senha" #senha="ngModel"
-        [ngClass]="{'is-invalid': senha.invalid && formLogin.submitted}" ngModel required/>
+    <input type="password" name="senha" #senha="ngModel" minlength="6" maxlength="20" class="form-control"
+        [ngClass]="{'is-invalid': senha.invalid && senha.touched}" ngModel required/>
 
-    <button type="submit" class="btn btn-primary">ENVIAR</button>
+    <label for="confirma">Confirmar a senha</label>
+    <input type="password" name="confirma" #confirma="ngModel" minlength="6" maxlength="20" ngModel required class="form-control"
+        [ngClass]="{'is-invalid': confirma.invalid && confirma.touched}"/>
+
+    <button type="submit" class="btn btn-primary" [disabled]="formCadastro.invalid">ENVIAR</button>
+
+    <div *ngIf="formCadastro.submitted && formCadastro.invalid" class="alert alert-danger">
+        O formulário é inválido. Por favor, corrija os campos destacados.
+    </div>
 </form>
